@@ -1,13 +1,19 @@
-def reverseArray(a):
-    i = 0
-    j = len(arr) - 1
-    while i < j:
-        arr[i], arr[j] = arr[j], arr[i]
-        i += 1
-        j -= 1
+height = [4,2,0,3,2,5]
+res = 0
+level = 0
+l = 0
+r = len(height) - 1
+if height == None or len(height) == 0:
+    res = 0
+    #return 0
+while l < r:
+    if height[l] < height[r]:
+        lower = height[l]
+        l += 1
+    else:
+        lower = height[r]
+        r -= 1
+    level = max(level, lower)
+    res = res + (level - lower)
 
-    return arr
-
-arr = [1, 2, 3, 4]
-
-print(reverseArray(arr))
+print ("Trap: ", res)
