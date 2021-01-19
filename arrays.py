@@ -1,19 +1,12 @@
-height = [4,2,0,3,2,5]
-res = 0
-level = 0
-l = 0
-r = len(height) - 1
-if height == None or len(height) == 0:
-    res = 0
-    #return 0
-while l < r:
-    if height[l] < height[r]:
-        lower = height[l]
-        l += 1
-    else:
-        lower = height[r]
-        r -= 1
-    level = max(level, lower)
-    res = res + (level - lower)
-
-print ("Trap: ", res)
+nums1 = [1,2]
+nums2 = [3,4]
+median = (len(nums1) + len(nums2))//2 + 1
+res = [0]*median
+for i in range(median):
+    print (i)
+#    if nums1[i] < nums2[i]:
+        #res[i] = nums1[i]
+    #else:
+        #res[i] = nums2[i]
+for i in range(median):
+    print(res[i])
