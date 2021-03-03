@@ -1,28 +1,26 @@
-class Solution:
-    def removeVowels(self, S):
-        new_s = ''
-        for ch in S:
-            if ch not in "aeiou":
-                new_s = new_s + ch
-        return new_s
-    def numUniqueEmails(self, emails):
-        seen = set()
-        for email in emails:
-            local, domain = email.split('@')
-            if '+' in local:
-                local = local[:local.index('+')]
-            seen.add(local.replace('.','') + '@' + domain)
-        return len(seen)
+#strings are arrays
+#strings are immutable arrays of characters
+#modifying a string is an illusion: a new string is created, replacing the original
+name = "Jaspreet"
 
-#Задачка с разворотом строки
-s = ["1", "2", "3", "4", "5"]
-if not s:
-    print("schade")
-left = 0
-right = len(s) - 1
-print("right ", right)
-while left < right:
-    s[left], s[right] = s[right], s[left]
-    left += 1
-    right -= 1
-print (s)
+print(name[1])
+#because strings aren't mutable, you can't use the subscript to do assignment
+#name[1] = "e" --- this results in a TypeError
+
+#you can't remove parts of the string
+#del name[1] --- this results in a TypeError
+
+#if you wish to do this kind of manipulation,
+#the most common approach is to convert the string into a list,
+#do the manipulation, and then convert it back.
+
+letters = list(name)
+print(letters)
+#because this is now a list, you can assign using subscripts
+letters[1] = "e"
+print(letters)
+#using the empty string and the .join() method on that,
+#we can convert list back into a string
+anouther_name = "".join(letters)
+print(name)
+print(anouther_name)
