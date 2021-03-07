@@ -1,3 +1,4 @@
+#https://leetcode.com/problems/string-compression/ 
 chars = ["a","a","b","b","c","c","c"]
 i = 0
 to = 0
