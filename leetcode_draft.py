@@ -1,14 +1,27 @@
-n = 4
-a = [57, 57, -57, 57]
-maximum = -100
-second_maximum = -100
+chars = ["a","a","a","b","b","a","a"]
+tmp_chars = []
+index = 0
+i = 0
+while i < len(chars):
+    j = i
+    while j < len(chars) and chars[j] == chars[i]:
+        j += 1
+    tmp_chars.append(chars[i])
+    index += 1
 
-for i in range(len(a)):
-    if a[i] > maximum:
-        maximum = a[i]
-for i in range(len(a)):
-    if a[i] > second_maximum and a[i] < maximum:
-        second_maximum = a[i]
+    if j - i > 1:
+        count = j - i
 
-print("maximum = ", maximum)
-print("second_maximum = ", second_maximum)
+        temp_lst = list(str(count))
+
+        l = 0
+        while l < len(temp_lst):
+            index += 1
+
+            tmp_chars.append(temp_lst[l])
+            #chars[index] = temp_lst[l]
+            l += 1
+    i = j
+chars = tmp_chars
+print (chars)
+print(index)
