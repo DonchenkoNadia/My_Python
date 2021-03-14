@@ -1,12 +1,4 @@
-arr = ["un", "iq", "ue"]
-uniqELements = ['']
-maximum = 0
-for i in range(len(arr)):
-    sz = len(uniqELements)
-    for j in range(sz):
-        x=arr[i]+uniqELements[j]
-        if (len(x)==len(set(x))):
-            uniqELements.append(x)
-            maximum = max(maximum,len(x))
-print(uniqELements)
-print(maximum)
+num = 12
+s = str(num)
+rev_s = s.reverse()
+print(rev_s)
