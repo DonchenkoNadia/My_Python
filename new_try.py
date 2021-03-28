@@ -1,14 +1,29 @@
-arr = [1,4,2,5,3]
-sum = 0
-i = 0
-while i <= len(arr):
-    j = i
-    while j <= len(arr):
-        k = i
-        if (j - k) % 2 == 1:
-            while k < j:
-                sum += arr[k]
-                k += 1
-        j += 1
-    i += 1
-print(sum)
+company = {
+    "Bob" : ["Dima", "Jack", "Ludwig"],
+    "Dima" : ["Igor", "Tatiana", "Nikita"],
+    "Nikita" : ["Sasha", "Andrey", "Vova"],
+    "Igor" : ["Nadia", "Ruslan"],
+    "Nadia" : ["Zheniya", "Andy"],
+    "Jack" : [],
+    "Ludwig" : [],
+    "Tatiana": [],
+    "Sasha": [],
+    "Andrey": [],
+    "Vova": [],
+    "Ruslan": [],
+    "Zheniya": [],
+    "Andy": []
+}
+#for the beginning I want to count how many people each boss has in team
+def how_big_team(company, boss, my_lst):
+    for empl in company[boss]:
+        my_lst.append(empl)
+        my_lst.append(how_big_team(company, empl, my_lst))
+    return my_lst
+my_lst = []
+print(how_big_team(company, "Igor", my_lst))
+"""
+boss = "Igor"
+my_lst = [empl for empl in company[boss]]
+print(my_lst)
+"""
