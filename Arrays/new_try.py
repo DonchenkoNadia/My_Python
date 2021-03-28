@@ -2,7 +2,7 @@ company = {
     "Bob" : ["Dima", "Jack", "Ludwig"],
     "Dima" : ["Igor", "Tatiana", "Nikita"],
     "Nikita" : ["Sasha", "Andrey", "Vova"],
-    "Igor" : ["Nadia", "Ruslan"],
+    "Igor" : ["Nadia", "Ruslan", "Dmitrii"],
     "Nadia" : ["Zheniya", "Andy"],
     "Jack" : [],
     "Ludwig" : [],
