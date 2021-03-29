@@ -1,11 +1,13 @@
-lst = [1, 0, 1]
-num = "101"
-for i, val in enumerate(lst):
-    lst[i] = str(val)
-print(int("".join(lst), 2))
-"""
-while head:
-    list.append(head.val)
-    head = head.next
-print (int("".join(list), 2))
-"""
+import re
+s =  "hi(name)"
+
+knowledge =[["a","b"]]
+
+d = {k:v for k, v in knowledge}
+lst = s.split("(")
+result = lst[0]
+
+for i in range(1, len(lst)):
+    question, word = lst[i].split(")")
+    result += d.get(question, "?") + word
+print (result)
