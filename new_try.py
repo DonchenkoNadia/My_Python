@@ -2,7 +2,7 @@ company = {
     "Bob" : ["Dima", "Jack", "Ludwig"],
     "Dima" : ["Igor", "Tatiana", "Nikita"],
     "Nikita" : ["Sasha", "Andrey", "Vova"],
-    "Igor" : ["Nadia", "Ruslan", "Dmitrii"],
+    "Igor" : ["Nadia", "Ruslan"],
     "Nadia" : ["Zheniya", "Andy"],
     "Jack" : [],
     "Ludwig" : [],
@@ -27,3 +27,9 @@ boss = "Igor"
 my_lst = [empl for empl in company[boss]]
 print(my_lst)
 """
+def reports(company, boss):
+  res = 0
+  for empl in company[boss]:
+    res += 1 + reports(company, empl)
+  return res
+print(reports(company, "Igor"))
