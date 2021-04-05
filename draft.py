@@ -1,16 +1,18 @@
-original = ["a", "b", "c"]
-num = 123
-cnt_lst = list(str(num))
-print(cnt_lst)
-j = 0
-for i, val in enumerate(cnt_lst):
-    j += 1
-    original.append(val)
+import heapq
 
-print(original)
-h = 2
-while h < len(original):
+li = [5, 7, 9, 1, 3]
+print(li)
 
-    del original[h]
-    h += 1
-print(original)
+heapq.heapify(li)
+print ("The created heap is : ")
+print(list(li))
+
+heapq.heappush(li, 4)
+print ("The modified heap after push is : ")
+print(list(li))
+
+print ("The popped and smallest element is : ")
+print (li[0])
+
+print ("The modified heap after popping is : ")
+print(list(li))
