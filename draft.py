@@ -1,18 +1,17 @@
-import heapq
+def groups_per_user(group_dictionary):
+    user_groups = {}
 
-li = [5, 7, 9, 1, 3]
-print(li)
+    for group in group_dictionary:
+        print(group)
+        for user in group_dictionary[group]:
+            print ("   " + user)
+            if user not in user_groups:
+                user_groups[user] = []
+            user_groups[user].append(group)
 
-heapq.heapify(li)
-print ("The created heap is : ")
-print(list(li))
+    return(user_groups)
 
-heapq.heappush(li, 4)
-print ("The modified heap after push is : ")
-print(list(li))
 
-print ("The popped and smallest element is : ")
-print (li[0])
-
-print ("The modified heap after popping is : ")
-print(list(li))
+print(groups_per_user({"local": ["admin", "userA"],
+                       "public":  ["admin", "userB"],
+		               "administrator": ["admin"] }))
