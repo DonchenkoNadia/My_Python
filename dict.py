@@ -31,7 +31,7 @@ print (rank_dict)
 #Example from Google course
 #The groups_per_user function receives a dictionary, which contains group names
 # with the list of users. Users can belong to multiple groups.
-#Fill in the blanks to return a dictionary with the users as keys and a list of their groups as values. 
+#Fill in the blanks to return a dictionary with the users as keys and a list of their groups as values.
 def groups_per_user(group_dictionary):
     user_groups = {}
 
@@ -48,3 +48,16 @@ def groups_per_user(group_dictionary):
 print(groups_per_user({"local": ["admin", "userA"],
 		"public":  ["admin", "userB"],
 		"administrator": ["admin"] }))
+
+#мой горемычный пример
+def count_team_size(company, boss):
+    res = 0
+    for person in company.get(boss, []):
+        res += 1 + count_team_size(company, person)
+    return res
+
+company = { "Bob" : ["Dima", "Magda"],
+            "Dima" : ["Igor", "Tatiana"],
+            "Igor" : ["Nadia"]
+}
+print(count_team_size(company, "Bob"))
