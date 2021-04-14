@@ -1,3 +1,4 @@
+#14.04 Mega exiced to understand 
 class Node():
     def __init__ (self, value, left = None, right = None):
         self.value = value
