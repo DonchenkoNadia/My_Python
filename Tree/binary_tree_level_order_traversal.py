@@ -1,4 +1,4 @@
-#14.04 Mega exiced to understand 
+#14.04 Mega exiced to understand
 class Node():
     def __init__ (self, value, left = None, right = None):
         self.value = value
@@ -28,11 +28,12 @@ def bfs(root):
             levels.append([])
 
         levels[level].append(node.value)
-
-        if node.right:
-            helper(node.right, level + 1)
+        
         if node.left:
             helper(node.left, level + 1)
+        if node.right:
+            helper(node.right, level + 1)
+
 
         return levels
 
@@ -42,4 +43,8 @@ def bfs(root):
 
 root = full_tree(3)
 print(printTree(root))
-print(bfs(root))
+result = bfs(root)
+ans = []
+for i in range(len(result)-1, -1, -1):
+    ans.append(result[i])
+print(ans)
