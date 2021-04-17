@@ -1,3 +1,3 @@
-l = [1]
-l.insert(0, 7)
-print(l)
+
+count, num = divmod(18, 10)
+print(count, " ", num)
