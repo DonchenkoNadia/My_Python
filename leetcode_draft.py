@@ -1,9 +1,9 @@
-S = "abcd"
-indexes = [0, 2]
-sources = ["ab","ec"]
-targets = ["eee","ffff"]
-res = S
-
-for i, val in enumerate(indexes):
-    if S.find(sources[i], indexes[i], indexes[i] + len(sources[i])) != -1:
-        res = res.replace(sources[i], targets[i])
+nums = [-1,2,1,-4]
+target = 1
+cur_delta = 0
+cur_min_sum = 0
+for i in range(0, len(nums)-1):
+    for j in range(i, len(nums)-1):
+        for k in range(j, len(nums)-1):
+            cur_min_sum = nums[i] + nums[j] + nums[k]
+            
