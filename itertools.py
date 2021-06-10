@@ -17,7 +17,7 @@ tree = [1, 1, 1, 1, 2, 2, 3, 3, 3]
 blocks = [(k, len(list(v))) for k, v in it.groupby(tree)]
 print(blocks) #schoud print: [(1, 4), (2, 2), (3, 3)]
 
-#Nice example, which is not solving N17 Letter 
+#Nice example, which is not solving N17 Letter
 telephone = { "2" : ["a", "b", "c"],
               "3" : ["d", "e", "f"],
               "4" : ["g", "h", "i"],
@@ -37,3 +37,17 @@ for digit in digits:
 print(combinations_base)
 ans = list(it.combinations(combinations_base, n))
 print(ans)
+
+#The way to get all substrings of one string 
+a = "aba"
+
+def mySubstrings(s):
+    comb = []
+    for i in range(1, len(s)+1):
+        for substr in it.combinations(s, i):
+            comb.append("".join(substr))
+    return comb
+
+a_comb = mySubstrings(a)
+
+print(f"a_comb = {a_comb[::-1]}")
