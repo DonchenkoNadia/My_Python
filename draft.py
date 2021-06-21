@@ -1,17 +1,30 @@
-mapping = {
-            'a':'0', 'b':'1', 'c':'2', 'd':'3', 'e':'4', 'f':'5', 'g':'6', 'h':'7', 'i':'8', 'j':'9'
-        }
+a = int(input())
+b = int(input())
 
-#Map performs the specified function for each item in the list.
-#Example:
-#list( map(int, ['1','2']) ) #[1, 2]
+#YES, if true
 
-firstWord = "acb"
-secondWord = "cba"
-targetWord = "cdb"
+#a = {xyxyyx}
+#b = {xyyxyx}
 
-def decoding (s):
+len_a = a.bit_length()
+len_b = b.bit_length()
+i = 0
 
-    return int("".join(list(map((lambda i: mapping[i]), list(s)))))
+def get_normalized_bit(value, bit_index):
+    return (value >> bit_index) & 1
 
-print(decoding("cdb"))
+def Check(a, b):
+    if len_a != len_b:
+        #print ("NO")
+        return 0
+
+    for i in range(0, len_a // 2 + 1):
+        if get_normalized_bit(a, len_a - i - 1) != get_normalized_bit(b, i):
+            #print("NO")
+            return 0
+    return 1
+
+if Check(a, b):
+    print("Yes")
+else:
+    print("No")
