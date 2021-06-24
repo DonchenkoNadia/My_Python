@@ -86,7 +86,7 @@ print(f"ans = {ans}")
 #циклический сдвиг на 1 бит делает
 #010 (правые биты не исчезают, как при >>, а переставляются в начало)
 
-n = 13
+n = 17
 
 def c_schift(num, schift):
     #идея... взять последний бит
@@ -103,9 +103,9 @@ def c_schift(num, schift):
             num = clear_bit(num, len_num-1)
 
     return num
-
-n = c_schift(n, 4)
-print(f"n after ideas = {n}")
+print(f"bin(n) = {bin(n)}")
+n = c_schift(n, 1)
+#print(f"n after ideas = {n}")
 print(f"bin(n) = {bin(n)}")
 
 '''
