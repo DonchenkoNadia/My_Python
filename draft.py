@@ -1,8 +1,3 @@
-def my_hash(s):
-    h = 0
-    for i, val in enumerate(s):
-        h = h + ord(val) + i**29
-    return h
-
-print(my_hash("abacf"))
-print(my_hash("abaer"))
+image = [[1,1,0],[1,0,1],[0,0,0]]
+for i in range(0, len(image)):
+    print(image[i])
