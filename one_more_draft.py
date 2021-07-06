@@ -1,19 +1,33 @@
-n = 10
-data = [-1]*n
-data[0] = 0
-data[1] = 1
+def prefix(s):
+    v = [0]*len(s)
+    for i in range(1,len(s)):
+        k = v[i-1]
+        while k > 0 and s[k] != s[i]:
+            k = v[k-1]
+        if s[k] == s[i]:
+            k = k + 1
+        v[i] = k
+    return v
 
-def fib(n):
-    if n == 1:
-        return 1
-    if n == 0:
-        return 0
-    else:
-        if data[n-2] == -1:
-            data[n-2] = fib(n-2)
-        if data[n-1] == -1:
-            data[n-1] = fib(n-1)
-        else:
-            return (data[n-2] + data[n-1])
+s = "ababbababa"
+t = "aba"
+s1 = t + "#" + s
+print(prefix(s1))
+pi = prefix(s1)
+print(pi[len(s)+1:])
+print("   ")
 
-print(fib(n))
+s = "aaababa"
+t = "t"
+s1 = t + "#" + s
+print(prefix(s1))
+pi = prefix(s1)
+print(pi[len(s)+1:])
+print("   ")
+
+s = "aaababa"
+t = "aaa"
+s1 = t + "#" + s
+print(prefix(s1))
+pi = prefix(s1)
+print(pi[len(s)+1:])

@@ -1,39 +1,55 @@
-company = {
-    "Bob" : ["Dima", "Jack", "Ludwig"],
-    "Dima" : ["Igor", "Tatiana", "Nikita"],
-    "Nikita" : ["Sasha", "Andrey", "Vova"],
-    "Igor" : ["Nadia", "Ruslan"],
-    "Nadia" : ["Zheniya", "Andy"],
-    "Jack" : [],
-    "Ludwig" : [],
-    "Tatiana": [],
-    "Sasha": [],
-    "Andrey": [],
-    "Vova": [],
-    "Ruslan": [],
-    "Zheniya": [],
-    "Andy": []
-}
-#for the beginning I want to count how many people each boss has in team
-"""
-def how_big_team(company, boss, my_lst):
-    for empl in company[boss]:
-        my_lst.append(empl)
-        my_lst.append(how_big_team(company, empl, my_lst))
-    return my_lst
-my_lst = []
-print(how_big_team(company, "Igor", my_lst))
+'''
+”aabaababa”
+ a - 0
+ aa - 1
+ aab - 0
+ aaba - 1
+ aabaa - 2
+ aabaab - 3
+ aabaaba - 4
+ aabaabab - 0
+ aabaababa - 1
 
-boss = "Igor"
-my_lst = [empl for empl in company[boss]]
-print(my_lst)
-"""
-def reports(company, boss):
-  res = 0
-  for empl in company[boss]:
-    res += 1 + reports(company, empl)
-  return res
-print(reports(company, "Igor"))
-p = {}
-if print(p.get("igor")) == None:
-    print ("No milk today")
+ 'aabaabaaaaba'
+ a - 0
+ aa - 1
+ aab - 0
+ aaba - 1
+ aabaa - 2
+ aabaab - 3
+ aabaaba - 4
+ aabaabaa - 5
+ aabaabaaa - 2
+ aabaabaaaa - 2
+ aabaabaaaab - 3
+ aabaabaaaaba - 4
+'''
+
+def prefix(s):
+    v = [0]*len(s)
+    for i in range(1,len(s)):
+        k = v[i-1]
+        while k > 0 and s[k] != s[i]:
+            k = v[k-1]
+        if s[k] == s[i]:
+            k = k + 1
+        v[i] = k
+    return v
+
+s = 'ABACABADABACABA'
+print(prefix(s))
+
+n = len(s)
+pi = prefix(s)
+k = n - pi[n-1]
+print(k)
+print(n % k)
+
+if n % k == 0:
+    print(s[0:k])
+else:
+    print(s)
+
+'''
+Как доказать что это так?
+'''
