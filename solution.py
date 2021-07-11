@@ -1,34 +1,25 @@
-fin  = open("input.txt")
-fout = open("output.txt","w")
-
-s = fin.readline()
-
 def prefix(s):
-    l = len(s)
-    pi = [0]
-    k = 0
-    for i in range(1, l-1):
-        while(k > 0 and s[k] != s[i]):
-            k = pi[k-1]
-        if (s[k] == s[i]):
-            k = k+1
-        pi.append(k)
-	#print "pattern is: ", p
-	#print "pi values are: ", pi
-    return pi
+    v = [0]*len(s)
+    for i in range(1,len(s)):
+        k = v[i-1]
+        while k > 0 and s[k] != s[i]:
+            k = v[k-1]
+        if s[k] == s[i]:
+            k = k + 1
+        v[i] = k
+    return v
 
-ans = ""
-pi = prefix(s)
-print(pi)
-print(len(pi))
-print(s)
-print(len(s))
+haystack = "a"
+needle = ""
+print(len(needle))
 
-for i in pi:
-    ans += str(i)
-    ans += " "
+s1 = needle + "#" + haystack
+pi = prefix(s1)
+res = -1
 
-fout.write(ans)
+for i in range(len(needle)+1, len(pi)):
+    if pi[i] == len(needle):
+        res = i-len(needle)*2
+        break
 
-fin.close()
-fout.close()
+print(res)

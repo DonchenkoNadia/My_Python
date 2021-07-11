@@ -1,31 +1,35 @@
-telephone = { "2" : ["a", "b", "c"],
-              "3" : ["d", "e", "f"],
-              "4" : ["g", "h", "i"],
-              "5" : ["j", "k", "l"],
-              "6" : ["m", "n", "o"],
-              "7" : ["p", "q", "r", "s"],
-              "8" : ["t", "u", "v"],
-              "9" : ["w", "x", "y", "z"]
-}
-digits = "23"
-combinations = []
+a = 2
+b = 100
+diff = 4
+first_prime = -1
+second_prime = -1
+primes = []
 
-def backtrack(index, path):
-    # If the path is the same length as digits, we have a complete combination
-    if len(path) == len(digits):
-        combinations.append("".join(path))
-        return # Backtrack
+def isPrime(n):
+    m = int(n**0.5) + 1
+    for i in range (2, m + 1):
+        if n % i == 0:
+            return 0
+    return 1
 
-    # Get the letters that the current digit maps to, and loop through them
-    possible_letters = telephone.get(digits[index], [])
-    for letter in possible_letters:
-        # Add the letter to our current path
-        path.append(letter)
-        # Move on to the next digit
-        backtrack(index + 1, path)
-        # Backtrack by removing the letter before moving onto the next
-        path.pop()
+for j in range(a, b+1):
+    if isPrime(j):
+        primes.append(j)
 
-backtrack(0, [])
+print(primes)
+l = 0
+r = 1
+while r < len(primes):
+    if primes[r] - primes[l] == diff:
+        print(f"Answer found! - {primes[l]} and {primes[r]}")
+    if primes[r] - primes[l] < diff:
+        r += 1
+# зафиксировать левую границу и предвигать правую в поиске значение primes[l] + diff
+# если такого значения не нашли, то передвинуть левый указатель. и так до конца списка
+        
 
-print(combinations)
+
+
+
+        #if primes[1] - primes[0] == diff:
+            #print(f"Answer found! - {primes}")
