@@ -1,28 +1,18 @@
-def prefix(s):
-    v = [0]*len(s)
-    for i in range(1,len(s)):
-        k = v[i-1]
-        while k > 0 and s[k] != s[i]:
-            k = v[k-1]
-        if s[k] == s[i]:
-            k = k + 1
-        v[i] = k
-    return v
+matrix = [[0, 0, 0, 1],
+          [0, 0, 1, 0],
+          [1, 0, 1, 0]]
 
-s = 'abac'
-print(prefix(s))
+new_matrix = []
+new_matrix.append([0]*(len(matrix[0])+2))
+for i in matrix:
+    new_matrix.append([0]+i+[0])
+new_matrix.append([0]*(len(matrix[0])+2))
 
-n = len(s)
-pi = prefix(s)
-k = n - pi[n-1]
-print(k)
-print(n % k)
-
-if n % k == 0 and k > 0:
-    print(s[0:k])
-else:
-    print(s)
-
-'''
-Как доказать что это так?
-'''
+print(new_matrix)
+ans = 0
+for i in range(1, len(new_matrix)):
+    for j in range(1, len(new_matrix[0])):
+        if new_matrix[i][j] == 1 and new_matrix[i-1][j] == 0 and new_matrix[i+1][j] == 0 and new_matrix[i][j-1] == 0 and new_matrix[i][j+1] == 0:
+            ans += 1
+            new_matrix[i][j] == 0
+print(ans)

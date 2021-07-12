@@ -8,7 +8,9 @@ for i in word:
         dict[i] += 1
 print(dict)
 for i in dict.values():
-    print(i)        
+    if i % 2 == 1:
+        res += 1
+        continue
 '''
 for i in range(0, len(word)+1):
     for k in range(0, i+1):

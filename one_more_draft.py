@@ -1,30 +1,25 @@
-def prefix(s):
-    v = [0]*len(s)
-    for i in range(1,len(s)):
-        k = v[i-1]
-        while k > 0 and s[k] != s[i]:
-            k = v[k-1]
-        if s[k] == s[i]:
-            k = k + 1
-        v[i] = k
-    return v
+file = {123: "a", 124: "b", 125: "c", 126: "d", 127: "e", 223: "a", 224: "b", 225: "c", 226: "d", 227: "e"}
+t1 = 126
+t2 = 225
 
-s = "ababbababa"
-t = "aba"
-s1 = t + "#" + s
-print(prefix(s1))
-pi = prefix(s1)
-print(pi[len(t)+1:])
-print("   ")
-ans = []
-for i in range(len(t)+1, len(pi)):
-    if pi[i] == len(t):
-        ans.append(i-len(t)*2)
-print(ans)
+l = 0
+r = len(file)
 
 '''
-аккуратно работаем с индексами и находим значения длины искомой строки.
-Позиции на которых она встречается и есть начало вхождения.
-Важно! искомый кусок ставим в начало, потом # потом строку, в которой ищем
+l = 0;
+R = len
+x0 > (r+l)/2 -> r = l/2
 
 '''
+while l > r:
+    x = (r+l)//2
+    print(f"l = {l}")
+    print(f"r = {r}")
+    print("  ")
+    if t1 < x:
+        r = r//2
+    if t1 > x:
+        l = r//2
+        r = len(file) + l // 2
+    if t1 == x:
+        print(f"Found on {x}")
