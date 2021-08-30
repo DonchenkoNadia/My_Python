@@ -1,18 +1,17 @@
-matrix = [[0, 0, 0, 1],
-          [0, 0, 1, 0],
-          [1, 0, 1, 0]]
+fin  = open("input.txt")
+fout = open("output.txt","w")
+s = fin.readline()
+#n = 2
+n = int(s)
+dp = [0 for i in range(0, n+1)]
 
-new_matrix = []
-new_matrix.append([0]*(len(matrix[0])+2))
-for i in matrix:
-    new_matrix.append([0]+i+[0])
-new_matrix.append([0]*(len(matrix[0])+2))
+dp[0] = 1
+dp[1] = 3
 
-print(new_matrix)
-ans = 0
-for i in range(1, len(new_matrix)):
-    for j in range(1, len(new_matrix[0])):
-        if new_matrix[i][j] == 1 and new_matrix[i-1][j] == 0 and new_matrix[i+1][j] == 0 and new_matrix[i][j-1] == 0 and new_matrix[i][j+1] == 0:
-            ans += 1
-            new_matrix[i][j] == 0
-print(ans)
+for i in range(2, n+1):
+    dp[i] = dp[i-1]*2
+
+fout.write(str(dp[n]))
+
+fin.close()
+fout.close()

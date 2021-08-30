@@ -1,35 +1,17 @@
-a = 2
-b = 100
-diff = 4
-first_prime = -1
-second_prime = -1
-primes = []
+mat = [[10, 20, 46, 75, 94],       [11, 23, 48, 81, 95],       [13, 25, 49, 82, 97],       [15, 27, 52, 93, 98],       [16, 28, 55, 98, 99]]
 
-def isPrime(n):
-    m = int(n**0.5) + 1
-    for i in range (2, m + 1):
-        if n % i == 0:
-            return 0
-    return 1
+val = 27
+n = len(mat)
 
-for j in range(a, b+1):
-    if isPrime(j):
-        primes.append(j)
+left = 0
+right = n - 1
 
-print(primes)
-l = 0
-r = 1
-while r < len(primes):
-    if primes[r] - primes[l] == diff:
-        print(f"Answer found! - {primes[l]} and {primes[r]}")
-    if primes[r] - primes[l] < diff:
-        r += 1
-# зафиксировать левую границу и предвигать правую в поиске значение primes[l] + diff
-# если такого значения не нашли, то передвинуть левый указатель. и так до конца списка
-        
-
-
-
-
-        #if primes[1] - primes[0] == diff:
-            #print(f"Answer found! - {primes}")
+while left < right:
+    mid = left + (right - left)//2
+    if mat[mid][mid] > val:
+        right = mid
+    else:
+        left = mid + 1
+print(left)
+print(mat[left-1][left-1])
+print(mat[left][left])

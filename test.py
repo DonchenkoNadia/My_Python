@@ -1,31 +1,33 @@
+#куча задач на посчитай варианты чего то в строке решается динамикой по балансу(сам недавно узнал)
 '''
-n = 5
-1 3 3 3 2
-{1} {3 3 3} {2}
-{1} {3 3} {3 2}
+fin  = open("input.txt")
+fout = open("output.txt","w")
 
-3
-1 3 1
-3
-1 2 2
+s = fin.readline()
+print(s)
+'''
+s = "????"
+n = len(s)
+print(n)
 
-{1} {3 3 3} {2}
+s = " " + s
 
-a = []
+dp = [[ 0 for i in range(0, n+1)] for j in range(0, n+1)]
+
+dp[0][0] = 1
+
+for lang in range(1, n+1):
+	for open in range(0, n+1):
+		if open - 1 >= 0 and (s[lang] == "?" or s[lang] == "("):
+			dp[lang][open] += dp[lang-1][open-1]
+		if open + 1 <= n and (s[lang] == "?" or s[lang] == ")"):
+			dp[lang][open] += dp[lang-1][open+1]
+
+print(f"answer = {dp[n][0]}")
 
 '''
+fout.write(str(dp[n][0]))
 
-n = 5
-nums = [3, 4, 5, 6, 7, 2, 10, 11]
-x = 5
-
-amount_of_segments = 0
-is_cur_segment = 0
-
-for i in range(0, len(nums)):
-    if nums[i] > x and is_cur_segment == 0:
-        is_cur_segment = 1
-        amount_of_segments += 1
-    if nums[i] <= x and is_cur_segment == 1:
-        is_cur_segment = 0
-print(f"amount_of_segments = {amount_of_segments}")
+fin.close()
+fout.close()
+'''
