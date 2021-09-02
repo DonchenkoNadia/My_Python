@@ -1,7 +1,9 @@
 #https://codeforces.com/problemset/problem/237/A?locale=en
-n = 3
-time = [[0, 12], [10, 11], [22, 22]]
-
+n = int(input())
+time = []
+for i in range(0, n):
+    time.append(list(map(int, input().split())))
+    
 ans = 1
 
 for i in range(1, n):
