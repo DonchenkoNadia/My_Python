@@ -1,43 +1,19 @@
-# n монет  https://cses.fi/problemset/task/1634
-# каждая iая из которых имеет стоимость p[i] > 0
-# дано число n
-# минимальное количество монет которыми можно разменять сумму m
-'''
-1) пытаемся определить что такое d[j]
-2) пытаемся составить переходы
-3) пытаемся определить базу
-4) фиксируем в каком элементе будет хранится ответ
+#https://acmp.ru/asp/do/index.asp?main=task&id_course=3&id_section=23&id_topic=110&id_problem=618
+a = [4, -5, 2, 5, -6, 8, 4, -9, 13, 0, 8, -13, -5, 20, -2]
+n = len(a)
 
+dp = [0 for i in range(0, n+1)]
 
-d[j] = min (d[j-p[i]] + 1), i - 0..n-1 пробегаем по всем монетам, пытаемся найти минимальную сумму и говорим, что будет +1 монета
+dp[0] = a[0]
 
-d[0] = 0
-если j < 0, то ответ бесконечность, чтобы заведомо не взяли.
-ответ в d[m]
+for i in range(1, n):
+    dp[i] = max(dp[i-1] + a[i], a[i])
 
-d[j] = min(d[j-p[i]] + 1)
+ans = dp[0]
 
-min = INF
-for i in range (0, m):
-    if d[j-p[i] < min:
-        min = d[j-p[i])
-
-d[j] = min + 1
-
-'''
-import math
-
-sum = 11
-
-dp = [math.inf for k in range(0, sum+1)]
-dp[0] = 0
-
-p = [1, 5, 7]
-
-for i in range(1, sum+1):
-    for j in range(0, len(p)):
-        if (i - p[j]) >= 0:
-            dp[i] = min(dp[i], dp[i - p[j]] + 1)
-
+for j in range(1, n):
+    if dp[j] > ans:
+        ans = dp[j]
+        
 print(dp)
-print(dp[sum])
+print(ans)

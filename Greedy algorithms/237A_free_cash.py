@@ -1,6 +1,7 @@
 #https://codeforces.com/problemset/problem/237/A?locale=en
 n = 3
 time = [[0, 12], [10, 11], [22, 22]]
+
 ans = 1
 
 for i in range(1, n):
