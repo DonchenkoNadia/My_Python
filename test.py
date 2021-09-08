@@ -9,9 +9,14 @@ for i in range(len(graph)):
         dict[graph[i][1]] = 0
 print(dict)
 
-#для каждой вершины делает поиск
+def dfs():
+    #условие выхода
+    return 1
+#для каждой вершины делает поиск по всему графу,
+#чтобы убедится, что она соединена со всеми остальными вершинами.
 for i, v in dict.items():
-    print(i)
+    for k in graph:
+        if i
 
 def isConnected(dict):
     for i in dict:
