@@ -1,10 +1,28 @@
 class Node():
-    def __init__(self, val, left = None, right = None):
+    def __init__(self, val = None, left = None, right = None):
         self.val = val
         self.left = left
         self.right = right
 
+def addNode(node, val):
+    if node != None:
+        node.val = val
+    elif val < node.val:
+        node.left = addNode(node.left, val)
+    else:
+        node.right = addNode(node.right, val)
+    return node
+
+def inOrder(root):
+    if root != None:
+        inOrder(root.left)
+        print(root.val,end=" ")
+        inOrder(root.right)
+
 root = Node(10, Node(8,None,Node(9)), Node(12, Node(11), Node(13)))
+inOrder(root)
+addNode(root, 7)
+inOrder(root)
 
 def helper(node):
     if node:
@@ -52,13 +70,14 @@ def CheckHeight(root):
     else:
         return 0
 
-
+'''
 if CheckValues(root):
     print("Seems like a binary search tree")
 else:
     print("It is not")
 
 CheckHeight(root)
+
 
 edges = [[1, 2], [2, 4], [2, 5], [1, 3], [3, 6], [3, 7], [1, 9]]
 graph = {}
@@ -86,3 +105,4 @@ if CheckIfBinary(graph):
     print("Looks like binary tree!")
 else:
     print("It is not a binary tree")
+'''
