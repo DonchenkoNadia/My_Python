@@ -64,47 +64,19 @@ class Stack:
 if __name__ == '__main__':
 
     stack = Stack()
+    r = 0
 
-    stack.push(1)
-    stack.push(2)
-    stack.push(3)
+    s = "())((()))"
 
-    print("Top element is", stack.peek())
+    for ch in s:
+        if ch == "(":
+            stack.push(ch)
+        elif ch == ")" and not stack.isEmpty():
+            stack.pop()
+        else:
+            r += 1
 
-    stack.pop()
-    stack.pop()
-    stack.pop()
-
-    if stack.isEmpty():
-        print("The stack is empty")
+    if stack.isEmpty() and r == 0:
+        print("All is correct")
     else:
-        print("The stack is not empty")
-
-
-
-'''
-stack
-
-    |3|
-    |4|
-    |2|
-    |4|
-    |5|
-    ___
-
-
-    LIFO
-
-push()
-pop()
-top()
-isEmpty()
-
-push 5
-push 3
-push 1
-print # 1 3 5
-top # 5
-pop
-print # 1 3
-'''
+        print("Not correct")
