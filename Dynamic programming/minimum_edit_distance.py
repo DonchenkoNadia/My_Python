@@ -1,3 +1,4 @@
+https://www.youtube.com/watch?v=We3YDTzNXEk&t=469s
 word1 = "abcdef"
 word2 = "azced"
 n = len(word1)
