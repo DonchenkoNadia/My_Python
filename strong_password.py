@@ -4,7 +4,7 @@ def char_range(c1, c2):
 
 def countDist(s):
     ans = 0
-    for i in char_range('a', 'z'):
+    for i in char_range('A', 'Z'):
         ans += solve(i, s)
     return ans
 
@@ -23,5 +23,5 @@ def solve(c, s):
 def findPassordStrength(password):
     return int(countDist(password))
 
-password = "test"
+password = "LEETCODE"
 print(findPassordStrength(password))

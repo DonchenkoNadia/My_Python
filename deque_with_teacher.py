@@ -6,6 +6,7 @@ class Node:
 class Queue:
     def __init__(self):
         self.top = None
+        self.last = None
 
     def push(self, x):
 
@@ -24,11 +25,30 @@ class Queue:
             print(temp.val)
             temp = temp.next
 
-que = Queue()
+class Deque():
+    def __init__(self):
+        self.q1 = Queue()
+        self.q2 = Queue()
 
-que.push(5)
-que.push(7)
-que.print()
-que.push(1)
+    def push_left(self, x):
+        self.q1.push(x)
 
-que.print()
+    def push_right(self, x):
+        self.q2.push(x)
+
+    def print_deque(self):
+        self.q1.print()
+        self.q2.print()
+
+
+s = "aabbcc"
+
+Q = Deque()
+
+for i in range(len(s)):
+    if i % 2  == 1:
+        Q.push_left(s[i])
+    else:
+        Q.push_right(s[i])
+
+Q.print_deque()
