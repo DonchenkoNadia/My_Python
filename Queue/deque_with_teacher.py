@@ -17,8 +17,6 @@ class Queue:
         self.top = node
 
     def print(self):
-        print("Printing Queue")
-
         temp = self.top
 
         while temp:
