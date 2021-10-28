@@ -23,6 +23,10 @@ class Queue:
             print(temp.val)
             temp = temp.next
 
+    #def print_reverse(self): 
+        #to print in reverse order
+
+
 class Deque():
     def __init__(self):
         self.q1 = Queue()
