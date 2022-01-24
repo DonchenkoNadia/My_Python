@@ -7,6 +7,7 @@ for card in decksOfCards:
     rank = card[0]
     if suit not in dict:
         dict[suit] = set()
+
     dict[suit].add(rank)
 
 
